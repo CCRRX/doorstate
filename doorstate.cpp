@@ -24,7 +24,7 @@ string to_string(T value)
 
 int send(string status){
 int random = 000000;
-int salt  = 13374223; //Das ist eine Art Passwort und muss gleich auf in der php datei sein!
+int salt  = 12345678; //Das ist eine Art Passwort und muss gleich auf in der php datei sein!
 
 srand (time(NULL));		//random zeug
 random = rand() % 9999 + 10000; //random nummer erzeugen 100000 bis 999999
