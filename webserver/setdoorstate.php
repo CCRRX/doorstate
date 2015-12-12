@@ -11,7 +11,7 @@ $hash = $_POST['hash'] . "\n"; 		//Das \n einfach ignorieren und da lassen!
 $pin = $_POST['pin'] . "\n";
 
 
-$pin = $pin + 13374223; 		//Salzen bzw. passwort addieren
+$pin = $pin + 12345678; 		//Salzen bzw. passwort addieren
 
 
 $context = hash_init("sha256"); 	//Hier wird der Hash aus dem gesalzenen pin erzeugt
