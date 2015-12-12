@@ -7,10 +7,10 @@
 # Default-Stop:      0 1 6
 # Short-Description: Tool to update door state from GPIO
 # Description:       This tool checks the door state via GPIO
-#                    and transmitts the state via HTTP.
+#                    and transmits the state via HTTP.
 ### END INIT INFO
 
-# Author: Foo Bar <mail@mueller-martin.net>
+# Author: Foo Bar <mail@mueller-martin.net> //TODO Add Author
 # THX @ Mot!
 
 # Do NOT "set -e"
