@@ -48,7 +48,7 @@ string befehl = sstr.str();
 
   curl = curl_easy_init();
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "nordlab-ev.de/doorstate/setdoorstate.php");
+    curl_easy_setopt(curl, CURLOPT_URL, "webseite.com/doorstate/setdorstate.php");
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, postthis);
 
     /* if we don't provide POSTFIELDSIZE, libcurl will strlen() by
