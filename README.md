@@ -47,6 +47,5 @@ SOURCE "UMBAUEN":
 
 Nur g++ langt nicht...
 ```g++ sha256.cpp gpiostatus.cpp -o gpiostatus -lwiringPi```
-oder einfach
-```./make.sh```
+oder einfach mit dem make.sh script
 
