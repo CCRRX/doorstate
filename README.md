@@ -4,13 +4,10 @@ by CRX 2015
 UNAUFGERAEUMT UND QUICK ND DIRTY VERSION ... 
 BETA - ES FEHLT NOCH EIN WICHTIGER BESTANDTEIL FÃœR DNE DAUERBETRIEB
 
-TODO:
+#TODO:
 
 als service einbinden
 code aufrÃ¤umen
-alles in eine ramdisk schriebn ODER ->
-direkt aus c code hochladen
-
 ________________________________
 
 am pi an die pins (!REV2!)GPIO22 mit PIN17 (3,3V) ueber einen schalter verbinden.
@@ -23,8 +20,8 @@ sudo ./gpiostatus
 ```
 
 
-FUNKTION:
-zu anfang wird der aktuelle status via post hochgeladen
+#FUNKTION:
+zu anfang wird der aktuelle status hochgeladen
 jede sekunde wird der status abgefagt
 bei Ã¤nderung wird der status neu hochgeladen
 
@@ -35,7 +32,7 @@ der webserver salzt mit dem spezial geheim salz den pin mcht ein hash und prÃ¼
 wurde das gleiche salz genutzt und der status wird nach status.txt auf dem webserver geschriben!
 
 
-ABHAENGIGKEITEN:
+#ABHAENGIGKEITEN:
 ```shell
 pi@raspberrypi ~ $ sudo apt-get update
 pi@raspberrypi ~ $ sudo apt-get install git-core 
