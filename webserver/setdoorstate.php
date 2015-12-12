@@ -11,16 +11,16 @@ $hash = $_POST['hash'] . "\n"; 		//Das \n einfach ignorieren und da lassen!
 $pin = $_POST['pin'] . "\n";
 
 
-$pin = $pin + 12345678; 		//Salzen bzw. passwort addieren
+$pin = $pin + 12345678; 		//Salzen bzw. Passwort addieren
 
 
-$context = hash_init("sha256"); 	//Hier wird der Hash aus dem gesalzenen pin erzeugt
+$context = hash_init("sha256"); 	//Hier wird der Hash aus dem gesalzenen Pin erzeugt
 hash_update($context, $pin);
 $finalshit =  hash_final($context). "\n";
 
-if($hash == $finalshit){		//Wenn gesendeteter hash und erzeugter überienstimmt wird der inhalt analysiert
-$statusfile = fopen('status.txt', 'w');	//die satus datei öffen
-if($status == "geschlossen\n"){ 	//man soll ja nicht direkt mit dem Argument in die datei schrieben können
+if($hash == $finalshit){		//Wenn gesendeteter Hash und erzeugter überienstimmt wird der Inhalt analysiert
+$statusfile = fopen('status.txt', 'w');	//die Statusdatei öffen
+if($status == "geschlossen\n"){ 	//Man soll ja nicht direkt mit dem Argument in die Datei schreiben können
 fwrite($statusfile,"geschlossen");
 echo "AuThEnTiFiZiErT - und hochgeladen :>\n";
 }
@@ -29,7 +29,7 @@ elseif($status == "offen\n"){
 fwrite($statusfile,"offen");
 echo "AuThEnTiFiZiErT - und hochgeladen :>\n";
 }
-else{					//Wenn versucht wird was anderes als offen oder geschlossen zu schrieben gibts ein error
+else{					//Wenn versucht wird etwas anderes als offen oder geschlossen zu schrieben gibt es ein error
 echo "Nope\n";
 }
 fclose($statusfile);

@@ -1,4 +1,4 @@
-// WiringPi-Api einbinden
+//WiringPi-Api einbinden
 #include <wiringPi.h>
 
 //Rest einbinden
@@ -24,22 +24,22 @@ string to_string(T value)
 
 int send(string status){
 int random = 000000;
-int salt  = 12345678; //Das ist eine Art Passwort und muss gleich auf in der php datei sein!
+int salt  = 12345678; //Das ist eine Art Passwort und muss gleich auf dem Pi und in der PHP Datei sein!
 
-srand (time(NULL));		//random zeug
-random = rand() % 9999 + 10000; //random nummer erzeugen 100000 bis 999999
+srand (time(NULL));		//Random Zeug
+random = rand() % 9999 + 10000; //Random Nummer erzeugen 100000 bis 999999
 
 string input;
-input = to_string(random + salt); //nur Strings können gehasht werden und random wird gesalzen durch addition
+input = to_string(random + salt); //Nur Strings können gehasht werden und random wird gesalzen durch addition
 
-string hash = sha256(input); //hashpower!
+string hash = sha256(input); //Hashpower!
 
 stringstream sstr;
 sstr << "hash=" << hash << "&pin=" << random << "&status=" << status;
 string befehl = sstr.str();
 
 
-	// ab hier wird hichgeladen - Code von irgeneinem beispiel kopiert
+	//ab hier wird hochgeladen - Code von irgeneinem Beispiel kopiert
   CURL *curl;
   CURLcode res;
 
@@ -73,42 +73,42 @@ string befehl = sstr.str();
 int main()
 {
 
-int last = 2;   //zum start gleich null setzten ist doof, villeicht ist der status noch nicht gemeldet
-                //dh. sensor sagt 0 und auf der webseite ist nochd er alte wert 1 ... daher einmal alles melden
+int last = 2;   //Zum Start gleich null setzten ist doof, villeicht ist der Status noch nicht gemeldet
+                //dh. Sensor sagt 0 und auf der Webseite ist noch der alte Wert 1 angezeigt, daher einmal Alles melden
 
-        // Starte die WiringPi-Api (wichtig)
+        //Starte die WiringPi-Api (wichtig)
         if (wiringPiSetup() == -1)
         return 1;
 
 	//Ja sind mehr als nötig, einer langt aber 3 sind auch gut, wer weiß was noch dazu kommt :>
-        // Schalte GPIO 17 (=WiringPi Pin 0) auf Eingang
+        //Schalte GPIO 17 (=WiringPi Pin 0) auf Eingang
         pinMode(0, INPUT);
 
-        // Schalte GPIO 27 (=WiringPi Pin 2) auf Eingang
+        //Schalte GPIO 27 (=WiringPi Pin 2) auf Eingang
         pinMode(2, INPUT);
 
-        // Schalte GPIO 22 (=WiringPi Pin 3) auf Eingang
+        //Schalte GPIO 22 (=WiringPi Pin 3) auf Eingang
         pinMode(3, INPUT);
 
 
-        // Dauerschleife
+        //Dauerschleife
         while(1) {
-        delay(1000); //bremseeee ...
+        delay(1000); //Bremseeee ...
 
-        // GPIO lesen
+        //GPIO lesen
         if(digitalRead(3)==1 && (last == 0 || last == 2)) {
                 printf("Geschlossen\n");
                 //status = "geschlossen";
                 send("geschlossen");
                 last = 1;
-                delay(1000); //noch ne bremse ... macht kein sinn aber bremsen stören heir ja nicht
+                delay(1000); //noch eine Bremse ... Macht kein Sinn aber bremsen stören hier ja nicht
         }
         if(digitalRead(3)==0 && (last == 1 || last == 2)){
                 printf("Geöffnet\n");
                 //status = "offen";
                 send("offen");
                 last = 0;
-                delay(1000); //noch ne bremse ... macht kein sinn aber bremsen stören heir ja nicht
+                delay(1000); //noch eine Bremse ... Nacht kein Sinn aber Bremsen stören hier ja nicht
         }
 }
 return 0;
