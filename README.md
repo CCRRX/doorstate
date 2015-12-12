@@ -18,7 +18,10 @@ am pi an die pins (!REV2!)GPIO22 mit PIN17 (3,3V) ueber einen schalter verbinden
 die "upload.php" kommt auf den Webserver 
 
 auf dem pi 
-#sudo ./gpiostatus
+```c++
+sudo ./gpiostatus
+```
+
 
 FUNKTION:
 zu anfang wird der aktuelle status via post hochgeladen
@@ -33,16 +36,17 @@ wurde das gleiche salz genutzt und der status wird nach status.txt auf dem webse
 
 
 ABHAENGIGKEITEN:
-
+```shell
 pi@raspberrypi ~ $ sudo apt-get update
 pi@raspberrypi ~ $ sudo apt-get install git-core 
 
 pi@raspberrypi ~ $ git clone git://git.drogon.net/wiringPi
 pi@raspberrypi ~ $ cd WiringPi
 pi@raspberrypi ~/WiringPi $ ./build 
-
+```
 SOURCE "UMBAUEN":
 
 nur g++ langt nicht...
-
+```shell
 g++ sha256.cpp gpiostatus.cpp -o gpiostatus -lwiringPi
+```
