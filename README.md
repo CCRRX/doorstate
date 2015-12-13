@@ -4,12 +4,10 @@ by CRX 2015
 
 UNAUFGERÄUMT UND QUICK AND DIRTY VERSION ... 
 
-TODO:
-===========
+##TODO:
 - Code aufräumen
 
-LETS START:
-===========
+##LETS START:
 
 1. Am Pi an die pins (!REV2!)GPIO22 mit PIN17 (3,3V) ueber einen Schalter verbinden.<br>
 2. Die "upload.php" kommt auf den Webserver <br>
@@ -19,8 +17,7 @@ LETS START:
 6. Wer will mit dem in init.d einbinden
 
 
-FUNKTION:
-===========
+##FUNKTION:
 - Zu Anfang wird der aktuelle Status hochgeladen.
 - Jede Sekunde wird der Status abgefagt.
 - Bei Änderung wird der Status neu hochgeladen.
@@ -32,8 +29,7 @@ Der Webserver salzt mit dem spezial geheim Salz den Pin, macht ein Hash und prü
 wurde das gleiche Salz genutzt und der Status wird in die "Status.txt" auf dem Webserver geschrieben!
 
 
-ABHÄNGIGKEITEN:
-===========
+##ABHÄNGIGKEITEN:
 ```
 pi@raspberrypi ~ $ sudo apt-get update
 pi@raspberrypi ~ $ sudo apt-get install git-core 
@@ -42,8 +38,7 @@ pi@raspberrypi ~ $ git clone git://git.drogon.net/wiringPi
 pi@raspberrypi ~ $ cd WiringPi
 pi@raspberrypi ~/WiringPi $ ./build 
 ```
-SOURCE "UMBAUEN":
-===========
+##SOURCE "UMBAUEN":
 
 Nur g++ langt nicht...
 ```g++ sha256.cpp gpiostatus.cpp -o gpiostatus -lwiringPi```
